@@ -464,7 +464,6 @@ body::after {
 .poem-text {
     font-family: var(--font-body); font-size: clamp(1.05rem, 2vw, 1.3rem); font-weight: 300;
     color: var(--clr-text-light); line-height: 2; text-align: left; font-style: italic;
-    white-space: pre-line;
 }
 .poem-text p { margin-bottom: 1.8rem; }
 
