@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Floating rose petals background -->
+    <div class="rose-gallery" aria-hidden="true">
+        <div class="rose rose-1"><img src="https://img.freepik.com/free-photo/beautiful-red-roses_181624-3693.jpg" alt=""></div>
+        <div class="rose rose-2"><img src="https://img.freepik.com/free-photo/couple-making-heart-from-hands-sea-shore_23-2148019887.jpg" alt=""></div>
+        <div class="rose rose-3"><img src="https://img.freepik.com/free-photo/red-rose-bouquet-grey-background_23-2148017688.jpg" alt=""></div>
+        <div class="rose rose-4"><img src="https://img.freepik.com/free-vector/beautiful-bokeh-with-red-hearts-design_1017-29644.jpg" alt=""></div>
+        <div class="rose rose-5"><img src="https://img.freepik.com/free-photo/red-3d-heart-shape-with-paint-pigment_23-2150965480.jpg" alt=""></div>
+        <div class="rose rose-6"><img src="https://img.freepik.com/free-photo/red-rose-flower-with-water-drops_181624-20670.jpg" alt=""></div>
+    </div>
+
+    <!-- Grain / texture overlay -->
+    <div class="grain-overlay"></div>
+
+    <!-- Confetti canvas -->
+    <canvas id="confettiCanvas"></canvas>
+
+    <!-- Wrong popup overlay -->
+    <div class="wrong-overlay" id="wrongOverlay">
+        <div class="wrong-popup" id="wrongPopup">
+            <span class="wrong-text">Wroooooooooooong</span>
+            <div class="ripple-ring ripple-1"></div>
+            <div class="ripple-ring ripple-2"></div>
+            <div class="ripple-ring ripple-3"></div>
+        </div>
+        <button class="wrong-dismiss" id="wrongDismiss">Continue &darr;</button>
+    </div>
+
+    <!-- Main content -->
+    <main class="content">
+        <!-- SECTION 1: Hero -->
+        <section class="hero" id="hero">
+            <div class="hero-inner">
+                <h1 class="hero-title fade-in fade-delay-1">
+                    Will You Be<br>
+                    <span class="hero-title-accent">My Valentine?</span>
+                </h1>
+                <div class="hero-ornament fade-in fade-delay-2">To: Rhianne</div>
+                <p class="hero-subtitle fade-in fade-delay-3">Scroll to continue&hellip;</p>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Quiz -->
+        <section class="quiz-section" id="quizSection">
+            <div class="quiz-inner">
+                <h2 class="quiz-title fade-in">How would your boyfriend<br><span class="quiz-title-accent">describe you?</span></h2>
+                <div class="quiz-grid" id="quizGrid"></div>
+                <p class="quiz-complete-label" id="quizCompleteLabel">Correct! You can scroll further now hehe</p>
+            </div>
+        </section>
+
+        <!-- SCROLL GATE 1 -->
+        <div class="scroll-gate" id="gate1"></div>
+
+        <!-- SECTION 3: Roses -->
+        <section class="gated-section roses-section" id="rosesSection">
+            <div class="roses-layout">
+                <div class="section-inner">
+                    <h2 class="section-title fade-in">How many roses would your boyfriend<br><span class="section-title-accent">have to gift you to say yes?</span></h2>
+                    <div class="input-group fade-in">
+                        <input type="text" id="rosesInput" class="roses-input" placeholder="Enter a number&hellip;" inputmode="numeric" autocomplete="off">
+                        <p class="input-error" id="rosesError"></p>
+                    </div>
+                    <button class="btn-lockin fade-in" id="rosesLockBtn">Lock in answer</button>
+                </div>
+                <div class="bouquet-container" id="bouquetContainer">
+                    <!-- Roses will be injected here by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SCROLL GATE 2 -->
+        <div class="scroll-gate" id="gate2"></div>
+
+        <!-- SECTION 4: Favorite part -->
+        <section class="gated-section fav-section" id="favSection">
+            <div class="section-inner">
+                <h2 class="section-title fade-in">What is your boyfriend's<br><span class="section-title-accent">favorite part about you?</span></h2>
+                <div class="input-group fade-in">
+                    <input type="text" id="favInput" class="fav-input" placeholder="Type your answer&hellip;" autocomplete="off">
+                </div>
+                <button class="btn-lockin fade-in" id="favLockBtn">Lock in answer</button>
+            </div>
+        </section>
+
+        <!-- SCROLL GATE 3 -->
+        <div class="scroll-gate" id="gate3"></div>
+
+        <!-- SECTION 5: Poem -->
+        <section class="gated-section poem-section" id="poemSection">
+            <div class="section-inner poem-inner">
+                <h2 class="section-title fade-in" style="margin-bottom:2rem;">A Little Poem<br><span class="section-title-accent">for you&hellip;</span></h2>
+                <div class="poem-text fade-in">
+                    <p>Your face a masterpiece - the finest sight
+                    With a smile that turns the darkest day to bright
+                    A kind of beauty words fail to express
+                    Though even apart, always on my mind, I must confess</p>
+                    <p>And when you look at me, the world falls still
+                    Your eyes filled with oceans deep and blue
+                    When our eyes meet it's the purest thrill
+                    Filled with life and every vibrant hue</p>
+                    <p>And then you speak in a voice as soft as river-flow
+                    Everything around me - time itself begins to slow
+                    Your tone so sweet, so vibrant any man would lose his way
+                    Just to hear the things you have to say</p>
+                    <p>You're the spark that ignites my fire
+                    The gust of fresh air that keeps me going higher
+                    Yes, the tides may turn, yes, the sky may fall
+                    But what I promise to you is that we will stand together - through it all
+                    For there is no force, no distance, no death, no art
+                    That could rip our souls apart</p>
+                    <p>I love you.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: Final -->
+        <section class="final-section" id="finalSection">
+            <div class="section-inner final-inner">
+                <h2 class="section-title fade-in final-title" id="finalTitle">Will you be my valentine<br><span class="section-title-accent">Rhianne?</span></h2>
+                <div class="final-buttons fade-in" id="finalButtons">
+                    <button class="btn-yes" id="btnYes">Yes</button>
+                    <button class="btn-no" id="btnNo">No</button>
+                </div>
+                <div class="video-container" id="videoContainer">
+                    <iframe id="videoPlayer" width="560" height="315" src="" title="Our Song" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
